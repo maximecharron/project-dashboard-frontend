@@ -1,0 +1,25 @@
+{
+  "name": "projects-dashboard-frontend",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierre-Alexandre St-Jean <pa@stjean.me>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-runtime": "^6.0.14",
+    "react": "^0.14.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.1.2",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
+    "freezer-js": "^0.9.4",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "webpack": "^1.12.3"
+  }
+}
