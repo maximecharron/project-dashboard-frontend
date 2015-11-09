@@ -9,12 +9,11 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-
   devtool: 'source-map',
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    root: './src'
+    root: path.join(__dirname, 'src')
   },
 
   plugins: [
@@ -31,6 +30,10 @@ module.exports = {
 		      cacheDirectory: true,
 		      presets:['es2015','react']
         }
+      },
+      {
+        test: /\.css/,
+        loader: 'style-loader!css-loader!autoprefixer-loader'
       }
     ]
   }

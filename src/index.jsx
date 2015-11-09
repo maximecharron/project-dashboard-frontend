@@ -1,8 +1,8 @@
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import React from 'react';
 
-import Application from 'application';
+import Application from 'components/application';
 
-ReactDOM.render(
+render(
   <Application/>,
   document.getElementById('glo2003-project-dashboard'));
