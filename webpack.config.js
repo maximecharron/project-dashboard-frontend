@@ -28,14 +28,6 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel'
-      },
-//      {
-//        test: /\.html$/,
-//        loader: "file?name=[name].[ext]",
-//      },
-      {
-        test: /\.css/,
-        loader: 'style-loader!css-loader!autoprefixer-loader'
       }
     ]
   }
