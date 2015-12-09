@@ -1,27 +1,8 @@
 import React from 'react';
-import Freezer from 'freezer-js'
+import Freezer from 'freezer-js';
 
-import ProjectList from 'components/projectlist.jsx'
-
-
-const url = 'ws://localhost:3000/ws';
-const c = new WebSocket(url);
-const send = function(data){
-  console.log((new Date())+ " ==> "+JSON.stringify(data)+"\n")
-  c.send(JSON.stringify(data))
-}
-
-c.onmessage = function(msg){
-  console.log((new Date())+ " <== "+msg.data+"\n")
-}
-
-let i = 0;
-c.onopen = function(){
-  setInterval(
-    // {"method": "echo", "params": ["Hello JSON-RPC"], "id": 1}
-    function(){ send({"method": "ping", "id": ++i}) }
-  , 10000 )
-}
+import ProjectList from 'components/projectlist';
+import realtime from 'components/realtime';
 
 const freezer = new Freezer({
   title: 'Glo2003 - Projects explorer',
@@ -33,9 +14,18 @@ const freezer = new Freezer({
   },
   projects: [
     {
-      title:'glo2003/glo',
+      name:'glo2003/glo',
       lastCommit:'',
-      ciStatus:''
+      ciStatus:'',
+      openIssues: [],
+      badges:['one-of-em']
+    },
+    {
+      name:'glo2003/awesome',
+      lastCommit:'yesterday',
+      ciStatus:'failling',
+      openIssues: [1001],
+      badges:['one-of-em']
     }
   ]
 });

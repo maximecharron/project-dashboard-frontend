@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Project from 'components/project'
+
 export default class ProjectList extends React.Component{
   render(){
-    return (<div>ProjectList
+    return (
     <div className="flex">
-      <div className="p1 border col-6">Hamburger</div>
-      <div className="p1 border col-6">Hamburger</div>
-    </div>
+      { this.props.projects.map( (project,i) => <div key={i} className="p1 border col-6">
+        <Project project={project} /></div>)}
     </div>)
   }
 }
+
+ProjectList.propTypes = {
+  projects: React.PropTypes.array
+};
