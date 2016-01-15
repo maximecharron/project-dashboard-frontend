@@ -58,12 +58,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	(0, _reactDom.render)(_react2.default.createElement(_application2.default, {
-	  __source: {
-	    fileName: '../../../src/index.jsx',
-	    lineNumber: 7
-	  }
-	}), document.getElementById('glo2003-project-dashboard'));
+	(0, _reactDom.render)(_react2.default.createElement(_application2.default, null), document.getElementById('glo2003-project-dashboard'));
 
 /***/ },
 /* 1 */
@@ -190,7 +185,7 @@
 	 * will remain to ensure logic does not differ in production.
 	 */
 	
-	var invariant = function (condition, format, a, b, c, d, e, f) {
+	function invariant(condition, format, a, b, c, d, e, f) {
 	  if (process.env.NODE_ENV !== 'production') {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
@@ -204,15 +199,16 @@
 	    } else {
 	      var args = [a, b, c, d, e, f];
 	      var argIndex = 0;
-	      error = new Error('Invariant Violation: ' + format.replace(/%s/g, function () {
+	      error = new Error(format.replace(/%s/g, function () {
 	        return args[argIndex++];
 	      }));
+	      error.name = 'Invariant Violation';
 	    }
 	
 	    error.framesToPop = 1; // we don't care about invariant's own frame
 	    throw error;
 	  }
-	};
+	}
 	
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -5598,7 +5594,7 @@
 	
 	'use strict';
 	
-	module.exports = '0.14.2';
+	module.exports = '0.14.6';
 
 /***/ },
 /* 43 */
@@ -6875,11 +6871,14 @@
 	 * @typechecks
 	 */
 	
+	/* eslint-disable fb-www/typeof-undefined */
+	
 	/**
 	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
 	 * not safe to call document.activeElement if there is nothing focused.
 	 *
-	 * The activeElement will be null only if the document or document body is not yet defined.
+	 * The activeElement will be null only if the document or document body is not
+	 * yet defined.
 	 */
 	'use strict';
 	
@@ -6887,7 +6886,6 @@
 	  if (typeof document === 'undefined') {
 	    return null;
 	  }
-	
 	  try {
 	    return document.activeElement || document.body;
 	  } catch (e) {
@@ -9075,7 +9073,7 @@
 	    var value = LinkedValueUtils.getValue(props);
 	
 	    if (value != null) {
-	      updateOptions(this, props, value);
+	      updateOptions(this, Boolean(props.multiple), value);
 	    }
 	  }
 	}
@@ -11077,7 +11075,7 @@
 
 	'use strict';
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -11108,11 +11106,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var freezer = new _freezerJs2.default(_exampledata2.default);
-	var rt = new Realtime();
 	
 	window.freezer = freezer;
 	
-	var Application = (function (_React$Component) {
+	var Application = function (_React$Component) {
 	  _inherits(Application, _React$Component);
 	
 	  function Application() {
@@ -11124,10 +11121,10 @@
 	  _createClass(Application, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
+	      var _this2 = this;
 	
 	      freezer.on('update', function (newvalue) {
-	        return _this.forceUpdate();
+	        return _this2.forceUpdate();
 	      });
 	    }
 	  }, {
@@ -11137,32 +11134,19 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container', __source: {
-	            fileName: '../../../src/components/application.jsx',
-	            lineNumber: 19
-	          }
-	        },
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'h1',
-	          {
-	            __source: {
-	              fileName: '../../../src/components/application.jsx',
-	              lineNumber: 20
-	            }
-	          },
+	          null,
 	          state.title
 	        ),
-	        _react2.default.createElement(_projectlist2.default, { projects: state.projects, __source: {
-	            fileName: '../../../src/components/application.jsx',
-	            lineNumber: 21
-	          }
-	        })
+	        _react2.default.createElement(_projectlist2.default, { projects: state.projects })
 	      );
 	    }
 	  }]);
 	
 	  return Application;
-	})(_react2.default.Component);
+	}(_react2.default.Component);
 	
 	exports.default = Application;
 
@@ -11172,7 +11156,7 @@
 
 	'use strict';
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -11190,7 +11174,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Project = (function (_React$Component) {
+	var Project = function (_React$Component) {
 	  _inherits(Project, _React$Component);
 	
 	  function Project() {
@@ -11208,61 +11192,32 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        {
-	          __source: {
-	            fileName: '../../../src/components/project.jsx',
-	            lineNumber: 9
-	          }
-	        },
+	        null,
 	        'Project - ',
 	        project.name,
 	        _react2.default.createElement(
 	          'div',
-	          {
-	            __source: {
-	              fileName: '../../../src/components/project.jsx',
-	              lineNumber: 10
-	            }
-	          },
+	          null,
 	          'N. open issues: ',
 	          project.issues ? project.issues.length : 0
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          {
-	            __source: {
-	              fileName: '../../../src/components/project.jsx',
-	              lineNumber: 11
-	            }
-	          },
+	          null,
 	          'N. open pull request: ',
 	          project.issues ? project.issues.length : 0
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          {
-	            __source: {
-	              fileName: '../../../src/components/project.jsx',
-	              lineNumber: 12
-	            }
-	          },
+	          null,
 	          'Languages',
 	          _react2.default.createElement(
 	            'ul',
-	            {
-	              __source: {
-	                fileName: '../../../src/components/project.jsx',
-	                lineNumber: 13
-	              }
-	            },
+	            null,
 	            Object.keys(languages).map(function (k) {
 	              return _react2.default.createElement(
 	                'li',
-	                { key: k, __source: {
-	                    fileName: '../../../src/components/project.jsx',
-	                    lineNumber: 15
-	                  }
-	                },
+	                { key: k },
 	                k,
 	                ': ',
 	                languages[k]
@@ -11272,41 +11227,19 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          {
-	            __source: {
-	              fileName: '../../../src/components/project.jsx',
-	              lineNumber: 19
-	            }
-	          },
+	          null,
 	          'Contributors',
 	          _react2.default.createElement(
 	            'ul',
-	            {
-	              __source: {
-	                fileName: '../../../src/components/project.jsx',
-	                lineNumber: 20
-	              }
-	            },
+	            null,
 	            contributors.map(function (contributor) {
 	              return _react2.default.createElement(
 	                'li',
-	                { key: contributor.login, __source: {
-	                    fileName: '../../../src/components/project.jsx',
-	                    lineNumber: 22
-	                  }
-	                },
+	                { key: contributor.login },
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: contributor.html_url, __source: {
-	                      fileName: '../../../src/components/project.jsx',
-	                      lineNumber: 22
-	                    }
-	                  },
-	                  _react2.default.createElement('img', { src: contributor.avatar_url, __source: {
-	                      fileName: '../../../src/components/project.jsx',
-	                      lineNumber: 22
-	                    }
-	                  }),
+	                  { href: contributor.html_url },
+	                  _react2.default.createElement('img', { src: contributor.avatar_url }),
 	                  contributor.login
 	                )
 	              );
@@ -11318,7 +11251,7 @@
 	  }]);
 	
 	  return Project;
-	})(_react2.default.Component);
+	}(_react2.default.Component);
 	
 	exports.default = Project;
 	
@@ -11332,7 +11265,7 @@
 
 	'use strict';
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -11354,7 +11287,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var ProjectList = (function (_React$Component) {
+	var ProjectList = function (_React$Component) {
 	  _inherits(ProjectList, _React$Component);
 	
 	  function ProjectList() {
@@ -11368,24 +11301,12 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'flex', __source: {
-	            fileName: '../../../src/components/projectlist.jsx',
-	            lineNumber: 8
-	          }
-	        },
+	        { className: 'flex' },
 	        this.props.projects.map(function (project, i) {
 	          return _react2.default.createElement(
 	            'div',
-	            { key: i, className: 'p1 border col-6', __source: {
-	                fileName: '../../../src/components/projectlist.jsx',
-	                lineNumber: 10
-	              }
-	            },
-	            _react2.default.createElement(_project2.default, { project: project, __source: {
-	                fileName: '../../../src/components/projectlist.jsx',
-	                lineNumber: 11
-	              }
-	            })
+	            { key: i, className: 'p1 border col-6' },
+	            _react2.default.createElement(_project2.default, { project: project })
 	          );
 	        })
 	      );
@@ -11393,7 +11314,7 @@
 	  }]);
 	
 	  return ProjectList;
-	})(_react2.default.Component);
+	}(_react2.default.Component);
 	
 	exports.default = ProjectList;
 	
@@ -12058,18 +11979,23 @@
 	'use strict';
 	
 	var performance = __webpack_require__(105);
-	var curPerformance = performance;
+	
+	var performanceNow;
 	
 	/**
 	 * Detect if we can use `window.performance.now()` and gracefully fallback to
 	 * `Date.now()` if it doesn't exist. We need to support Firefox < 15 for now
 	 * because of Facebook's testing infrastructure.
 	 */
-	if (!curPerformance || !curPerformance.now) {
-	  curPerformance = Date;
+	if (performance.now) {
+	  performanceNow = function () {
+	    return performance.now();
+	  };
+	} else {
+	  performanceNow = function () {
+	    return Date.now();
+	  };
 	}
-	
-	var performanceNow = curPerformance.now.bind(curPerformance);
 	
 	module.exports = performanceNow;
 
@@ -14583,6 +14509,7 @@
 	    multiple: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    muted: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    name: null,
+	    nonce: MUST_USE_ATTRIBUTE,
 	    noValidate: HAS_BOOLEAN_VALUE,
 	    open: HAS_BOOLEAN_VALUE,
 	    optimum: null,
@@ -14594,6 +14521,7 @@
 	    readOnly: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    rel: null,
 	    required: HAS_BOOLEAN_VALUE,
+	    reversed: HAS_BOOLEAN_VALUE,
 	    role: MUST_USE_ATTRIBUTE,
 	    rows: MUST_USE_ATTRIBUTE | HAS_POSITIVE_NUMERIC_VALUE,
 	    rowSpan: null,
@@ -14644,8 +14572,8 @@
 	     */
 	    // autoCapitalize and autoCorrect are supported in Mobile Safari for
 	    // keyboard hints.
-	    autoCapitalize: null,
-	    autoCorrect: null,
+	    autoCapitalize: MUST_USE_ATTRIBUTE,
+	    autoCorrect: MUST_USE_ATTRIBUTE,
 	    // autoSave allows WebKit/Blink to persist values of input fields on page reloads
 	    autoSave: null,
 	    // color is for Safari mask-icon link
@@ -14676,9 +14604,7 @@
 	    httpEquiv: 'http-equiv'
 	  },
 	  DOMPropertyNames: {
-	    autoCapitalize: 'autocapitalize',
 	    autoComplete: 'autocomplete',
-	    autoCorrect: 'autocorrect',
 	    autoFocus: 'autofocus',
 	    autoPlay: 'autoplay',
 	    autoSave: 'autosave',
@@ -14736,6 +14662,7 @@
 	});
 	
 	React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
+	React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 	
 	module.exports = React;
 
@@ -17706,7 +17633,9 @@
 	  'setValueForProperty': 'update attribute',
 	  'setValueForAttribute': 'update attribute',
 	  'deleteValueForProperty': 'remove attribute',
-	  'dangerouslyReplaceNodeWithMarkupByID': 'replace'
+	  'setValueForStyles': 'update styles',
+	  'replaceNodeWithMarkup': 'replace',
+	  'updateTextContent': 'set textContent'
 	};
 	
 	function getTotalTime(measurements) {
