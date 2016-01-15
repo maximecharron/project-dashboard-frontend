@@ -5,5 +5,11 @@
 ```sh
 npm install -g webpack
 npm install
-webpack
+npm run build
+```
+
+## Deploying
+
+```sh
+bash deploy-pages.sh
 ```
