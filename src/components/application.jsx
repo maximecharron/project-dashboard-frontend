@@ -2,7 +2,6 @@ import React from 'react';
 import Freezer from 'freezer-js';
 
 import ProjectList from 'components/projectlist';
-import Realtime from 'components/realtime';
 import exampledata from 'exampledata';
 
 const freezer = new Freezer (exampledata);
