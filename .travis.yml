@@ -20,9 +20,9 @@ notifications:
     on_success: never
     on_failure: never
 
-deploy:
- - provider: script
-   skip_cleanup: true
-   script: ./publish-pages.sh
-   on:
-     branch: master
+#deploy:
+# - provider: script
+#   skip_cleanup: true
+#   script: ./publish-pages.sh
+#   on:
+#     branch: master
