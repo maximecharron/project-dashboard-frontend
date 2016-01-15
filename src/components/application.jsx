@@ -5,7 +5,6 @@ import ProjectList from 'components/projectlist';
 import exampledata from 'exampledata';
 
 const freezer = new Freezer (exampledata);
-const rt = new Realtime ();
 
 window.freezer = freezer;
 
