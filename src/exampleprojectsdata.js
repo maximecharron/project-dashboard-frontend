@@ -1,12 +1,4 @@
-export default {
-  title: 'Glo2003 - Projects explorer',
-  badges: {
-    'one-of-em': {
-      'img':'url://',
-      'description':'some description'
-    }
-  },
-  projects: [
+export default [
     {
       name:'glo2003/glo',
       lastCommit:'',
@@ -67,4 +59,3 @@ export default {
       badges:['one-of-em']
     }
   ]
-}
