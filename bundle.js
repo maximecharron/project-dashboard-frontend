@@ -11135,8 +11135,8 @@
 	      method: 'get',
 	      type: 'json',
 	      success: function success(resp) {
-	        console.log(resp.content);
-	        freezer.get().set("projects", resp.content);
+	        console.log(resp);
+	        freezer.get().set("projects", resp);
 	      }
 	    });
 	  };
