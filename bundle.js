@@ -11133,8 +11133,10 @@
 	    (0, _reqwest2.default)({
 	      url: queryString["server"] + "/projects",
 	      method: 'get',
+	      type: 'json',
 	      success: function success(resp) {
-	        return freezer.get().set("projects", JSON.parse(resp));
+	        console.log(resp.content);
+	        freezer.get().set("projects", resp.content);
 	      }
 	    });
 	  };
