@@ -1,5 +1,5 @@
 git checkout gh-pages
-cp dist/*
+cp dist/* .
 rm -rf dist
 git add *
 git commit -am "Deploy pages"

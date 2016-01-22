@@ -23,7 +23,11 @@ if(queryString["server"]){
     reqwest({
         url: queryString["server"] + "/projects"
       , method: 'get'
-      , success: resp => freezer.get().set("projects", JSON.parse(resp))
+      ,type: 'json'
+      , success: resp => {
+      console.log(resp.content)
+freezer.get().set("projects", resp.content)
+}
     })
   }
 }
