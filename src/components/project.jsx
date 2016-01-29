@@ -43,7 +43,7 @@ export default class Project extends React.Component{
         <div>Contributors
           <ul>
           {contributors.map( (contributor) => {
-            return <li key={contributor.login}><a href={contributor.html_url}><img src={contributor.avatar_url}/>{contributor.login}</a></li>
+            return <li key={contributor.login}><a href={contributor.html_url}><img height="64px" width="64px" src={contributor.avatar_url}/>{contributor.login}</a></li>
           })}
           </ul>
         </div>
