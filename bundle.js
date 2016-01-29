@@ -11273,7 +11273,7 @@
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          { className: "flex p2" },
+	          { className: "flex p2 flex-jc-space-around" },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "col-4" },
