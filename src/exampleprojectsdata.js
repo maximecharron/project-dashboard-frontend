@@ -25,6 +25,7 @@ export default [
           "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
         }
       }],
+      open_issues_count:0,
       issues: [],
       badges:['one-of-em']
     },
