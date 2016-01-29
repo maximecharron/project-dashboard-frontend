@@ -15,9 +15,9 @@ if(window.location.search !== ""){
 }
 
 var projectsSetter = () => {
-  console.log(exampleProjects);
   freezer.get().set("projects", exampleProjects);
 }
+
 if(queryString["server"]){
   projectsSetter = () => {
     reqwest({
@@ -41,7 +41,6 @@ export default class Application extends React.Component{
   }
   render(){
     const state = freezer.get();
-    console.log(state.projects);
     return (<div className="container">
       <h1>{state.title}</h1>
       <ProjectList projects={state.projects}/>
