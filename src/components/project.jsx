@@ -6,7 +6,7 @@ export default class Project extends React.Component{
     const contributors = project.contributors || [];
     const languages = project.languages || {};
 
-    return (<div>Project - {project.name}
+    return (<div className="border p2 shadow">Project - {project.name}
         <div>N. open issues: {project.issues ? project.issues.length : 0}</div>
         <div>N. open pull request: {project.issues ? project.issues.length : 0}</div>
         <div>Languages

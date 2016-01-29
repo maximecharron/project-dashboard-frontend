@@ -8,9 +8,9 @@ export default class ProjectList extends React.Component{
     const projects = this.props.projects || [];
 
     return (
-    <div className="flex">
+    <div className="sm-flex flex-wrap mxn2">
       { projects.map( (project,i) => {
-        return <div key={i} className="p1 border col-6">
+        return <div key={i} className="sm-col-6 lg-col-4 border-box p2">
           <Project project={project} /></div>
       })}
     </div>)
