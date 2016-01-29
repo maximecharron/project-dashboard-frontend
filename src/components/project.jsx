@@ -6,6 +6,8 @@ export default class Project extends React.Component{
     const contributors = project.contributors || [];
     const languages = project.languages || {};
 
+    var open_issues_count = project["open_issues_count"]
+    console.log(project["open_issues_count"]);
     const openIssues = (props => {
       if(!project.open_issues_count){
         return (<div className="p2 rounded white bg-red">Could not retrieve issues</div>);
