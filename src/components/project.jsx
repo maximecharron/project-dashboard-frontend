@@ -26,7 +26,7 @@ export default class Project extends React.Component{
             <div className="white bg-black p2 ">
               {project.name}
             </div>
-            <div className="flex p2">
+            <div className="flex p2 flex-jc-space-around">
               <div className="col-4">
                 { openIssues }
               </div>
