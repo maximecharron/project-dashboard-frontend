@@ -11125,9 +11125,9 @@
 	}
 	
 	var projectsSetter = function projectsSetter() {
-	  console.log(_exampleprojectsdata2.default);
 	  freezer.get().set("projects", _exampleprojectsdata2.default);
 	};
+	
 	if (queryString["server"]) {
 	  projectsSetter = function projectsSetter() {
 	    (0, _reqwest2.default)({
@@ -11167,7 +11167,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var state = freezer.get();
-	      console.log(state.projects);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
@@ -11226,22 +11225,62 @@
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
 	
+	      var openIssues = function (props) {
+	        console.log(project);
+	        if (!project.issues) {
+	          return _react2.default.createElement(
+	            "div",
+	            { className: "white bg-red" },
+	            "Could not retrieve issues"
+	          );
+	        }
+	        if (project.issues.length === 0) {
+	          return _react2.default.createElement(
+	            "div",
+	            { className: "white bg-green" },
+	            "0 issues"
+	          );
+	        }
+	        if (project.issues.length === 1) {
+	          return _react2.default.createElement(
+	            "div",
+	            { className: "white bg-yellow" },
+	            "1 issue"
+	          );
+	        }
+	        if (project.issues.length < 3) {
+	          return _react2.default.createElement(
+	            "div",
+	            { className: "white bg-yellow" },
+	            project.issues.length,
+	            " issues"
+	          );
+	        }
+	        return _react2.default.createElement(
+	          "div",
+	          { className: "white bg-red" },
+	          project.issues.length,
+	          " issues"
+	        );
+	      }();
+	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "border p2 shadow" },
-	        "Project - ",
-	        project.name,
+	        { className: "border shadow col-12" },
 	        _react2.default.createElement(
 	          "div",
-	          null,
-	          "N. open issues: ",
-	          project.issues ? project.issues.length : 0
+	          { className: "white bg-black p2 " },
+	          project.name
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          null,
-	          "N. open pull request: ",
-	          project.issues ? project.issues.length : 0
+	          { className: "flex p2 " },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-4" },
+	            "s",
+	            openIssues
+	          )
 	        ),
 	        _react2.default.createElement(
 	          "div",
@@ -11344,7 +11383,7 @@
 	        projects.map(function (project, i) {
 	          return _react2.default.createElement(
 	            'div',
-	            { key: i, className: 'sm-col-6 lg-col-4 border-box p2' },
+	            { key: i, className: 'sm-col-6 lg-col-4 border-box p2 flex flex-stretch' },
 	            _react2.default.createElement(_project2.default, { project: project })
 	          );
 	        })
