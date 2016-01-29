@@ -11226,39 +11226,38 @@
 	      var languages = project.languages || {};
 	
 	      var openIssues = function (props) {
-	        console.log(project);
 	        if (!project.issues) {
 	          return _react2.default.createElement(
 	            "div",
-	            { className: "white bg-red" },
+	            { className: "p2 rounded white bg-red" },
 	            "Could not retrieve issues"
 	          );
 	        }
 	        if (project.issues.length === 0) {
 	          return _react2.default.createElement(
 	            "div",
-	            { className: "white bg-green" },
+	            { className: "p2 rounded white bg-green" },
 	            "0 issues"
 	          );
 	        }
 	        if (project.issues.length === 1) {
 	          return _react2.default.createElement(
 	            "div",
-	            { className: "white bg-yellow" },
+	            { className: "p2 rounded white bg-yellow" },
 	            "1 issue"
 	          );
 	        }
 	        if (project.issues.length < 3) {
 	          return _react2.default.createElement(
 	            "div",
-	            { className: "white bg-yellow" },
+	            { className: "p2 rounded white bg-yellow" },
 	            project.issues.length,
 	            " issues"
 	          );
 	        }
 	        return _react2.default.createElement(
 	          "div",
-	          { className: "white bg-red" },
+	          { className: "p2 rounded white bg-red" },
 	          project.issues.length,
 	          " issues"
 	        );
@@ -11274,11 +11273,10 @@
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          { className: "flex p2 " },
+	          { className: "flex p2" },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "col-4" },
-	            "s",
 	            openIssues
 	          )
 	        ),
@@ -11453,7 +11451,7 @@
 	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
 	    }
 	  }],
-	  openIssues: [],
+	  issues: [],
 	  badges: ['one-of-em']
 	}, {
 	  name: 'glo2003/awesome',
@@ -11506,7 +11504,7 @@
 	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
 	    }
 	  }],
-	  openIssues: [],
+	  issues: [],
 	  badges: ['one-of-em']
 	}, {
 	  name: 'glo2003/glo',
@@ -11558,7 +11556,6 @@
 	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
 	    }
 	  }],
-	  openIssues: [],
 	  badges: ['one-of-em']
 	}, {
 	  name: 'glo2003/glo',
@@ -11584,7 +11581,6 @@
 	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
 	    }
 	  }],
-	  openIssues: [],
 	  badges: ['one-of-em']
 	}];
 
