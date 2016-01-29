@@ -11226,39 +11226,39 @@
 	      var languages = project.languages || {};
 	
 	      var openIssues = function (props) {
-	        if (!project.issues) {
+	        if (!project.open_issues_count) {
 	          return _react2.default.createElement(
 	            "div",
 	            { className: "p2 rounded white bg-red" },
 	            "Could not retrieve issues"
 	          );
 	        }
-	        if (project.issues.length === 0) {
+	        if (project.open_issues_count === 0) {
 	          return _react2.default.createElement(
 	            "div",
 	            { className: "p2 rounded white bg-green" },
 	            "0 issues"
 	          );
 	        }
-	        if (project.issues.length === 1) {
+	        if (project.open_issues_count === 1) {
 	          return _react2.default.createElement(
 	            "div",
 	            { className: "p2 rounded white bg-yellow" },
 	            "1 issue"
 	          );
 	        }
-	        if (project.issues.length < 3) {
+	        if (project.open_issues_count < 3) {
 	          return _react2.default.createElement(
 	            "div",
 	            { className: "p2 rounded white bg-yellow" },
-	            project.issues.length,
+	            project.open_issues_count,
 	            " issues"
 	          );
 	        }
 	        return _react2.default.createElement(
 	          "div",
 	          { className: "p2 rounded white bg-red" },
-	          project.issues.length,
+	          project.open_issues_count,
 	          " issues"
 	        );
 	      }();
@@ -11451,6 +11451,7 @@
 	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
 	    }
 	  }],
+	  open_issues_count: 0,
 	  issues: [],
 	  badges: ['one-of-em']
 	}, {
