@@ -11225,6 +11225,8 @@
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
 	
+	      var open_issues_count = project["open_issues_count"];
+	      console.log(project["open_issues_count"]);
 	      var openIssues = function (props) {
 	        if (!project.open_issues_count) {
 	          return _react2.default.createElement(
