@@ -11314,7 +11314,7 @@
 	                _react2.default.createElement(
 	                  "a",
 	                  { href: contributor.html_url },
-	                  _react2.default.createElement("img", { src: contributor.avatar_url }),
+	                  _react2.default.createElement("img", { height: "64px", width: "64px", src: contributor.avatar_url }),
 	                  contributor.login
 	                )
 	              );
