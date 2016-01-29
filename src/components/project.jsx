@@ -7,28 +7,27 @@ export default class Project extends React.Component{
     const languages = project.languages || {};
 
     const openIssues = (props => {
-      console.log(project)
       if(!project.issues){
-        return (<div className="white bg-red">Could not retrieve issues</div>);
+        return (<div className="p2 rounded white bg-red">Could not retrieve issues</div>);
       }
       if(project.issues.length === 0){
-        return (<div className="white bg-green">0 issues</div>);
+        return (<div className="p2 rounded white bg-green">0 issues</div>);
       }
       if(project.issues.length === 1){
-        return (<div className="white bg-yellow">1 issue</div>);
+        return (<div className="p2 rounded white bg-yellow">1 issue</div>);
       }
       if(project.issues.length < 3){
-        return (<div className="white bg-yellow">{project.issues.length} issues</div>);
+        return (<div className="p2 rounded white bg-yellow">{project.issues.length} issues</div>);
       }
-      return (<div className="white bg-red">{project.issues.length} issues</div>);
+      return (<div className="p2 rounded white bg-red">{project.issues.length} issues</div>);
     })();
 
     return (<div className="border shadow col-12">
             <div className="white bg-black p2 ">
               {project.name}
             </div>
-            <div className="flex p2 ">
-              <div className="col-4">s
+            <div className="flex p2">
+              <div className="col-4">
                 { openIssues }
               </div>
             </div>

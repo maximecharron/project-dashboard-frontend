@@ -25,7 +25,7 @@ export default [
           "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
         }
       }],
-      openIssues: [],
+      issues: [],
       badges:['one-of-em']
     },
     {
@@ -83,7 +83,7 @@ export default [
           "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
         }
       }],
-      openIssues: [],
+      issues: [],
       badges:['one-of-em']
     },{
       name:'glo2003/glo',
@@ -139,7 +139,6 @@ export default [
           "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
         }
       }],
-      openIssues: [],
       badges:['one-of-em']
     },{
       name:'glo2003/glo',
@@ -167,7 +166,6 @@ export default [
           "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
         }
       }],
-      openIssues: [],
       badges:['one-of-em']
     }
   ]
