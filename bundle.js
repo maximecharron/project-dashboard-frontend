@@ -11190,7 +11190,7 @@
 /* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -11220,62 +11220,62 @@
 	  }
 	
 	  _createClass(Project, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      var project = this.props.project;
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
 	
 	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'Project - ',
+	        "div",
+	        { className: "border p2 shadow" },
+	        "Project - ",
 	        project.name,
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
-	          'N. open issues: ',
+	          "N. open issues: ",
 	          project.issues ? project.issues.length : 0
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
-	          'N. open pull request: ',
+	          "N. open pull request: ",
 	          project.issues ? project.issues.length : 0
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
-	          'Languages',
+	          "Languages",
 	          _react2.default.createElement(
-	            'ul',
+	            "ul",
 	            null,
 	            Object.keys(languages).map(function (k) {
 	              return _react2.default.createElement(
-	                'li',
+	                "li",
 	                { key: k },
 	                k,
-	                ': ',
+	                ": ",
 	                languages[k]
 	              );
 	            })
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
-	          'Contributors',
+	          "Contributors",
 	          _react2.default.createElement(
-	            'ul',
+	            "ul",
 	            null,
 	            contributors.map(function (contributor) {
 	              return _react2.default.createElement(
-	                'li',
+	                "li",
 	                { key: contributor.login },
 	                _react2.default.createElement(
-	                  'a',
+	                  "a",
 	                  { href: contributor.html_url },
-	                  _react2.default.createElement('img', { src: contributor.avatar_url }),
+	                  _react2.default.createElement("img", { src: contributor.avatar_url }),
 	                  contributor.login
 	                )
 	              );
@@ -11340,11 +11340,11 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'flex' },
+	        { className: 'sm-flex flex-wrap mxn2' },
 	        projects.map(function (project, i) {
 	          return _react2.default.createElement(
 	            'div',
-	            { key: i, className: 'p1 border col-6' },
+	            { key: i, className: 'sm-col-6 lg-col-4 border-box p2' },
 	            _react2.default.createElement(_project2.default, { project: project })
 	          );
 	        })
@@ -11442,6 +11442,110 @@
 	    "created_at": "2011-04-22T13:33:48Z",
 	    "updated_at": "2011-04-22T13:33:48Z"
 	  }],
+	  badges: ['one-of-em']
+	}, {
+	  name: 'glo2003/glo',
+	  lastCommit: '',
+	  ciStatus: '',
+	  contributors: [{
+	    "login": "octocat",
+	    "id": 1,
+	    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+	    "url": "https://api.github.com/users/octocat",
+	    "html_url": "https://github.com/octocat",
+	    "type": "User",
+	    "contributions": 32
+	  }],
+	  languages: {
+	    "C": 78769,
+	    "Python": 7769
+	  },
+	  branches: [{
+	    "name": "master",
+	    "commit": {
+	      "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+	    }
+	  }],
+	  openIssues: [],
+	  badges: ['one-of-em']
+	}, {
+	  name: 'glo2003/glo',
+	  lastCommit: '',
+	  ciStatus: '',
+	  contributors: [{
+	    "login": "octocat",
+	    "id": 1,
+	    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+	    "url": "https://api.github.com/users/octocat",
+	    "html_url": "https://github.com/octocat",
+	    "type": "User",
+	    "contributions": 32
+	  }],
+	  languages: {
+	    "C": 78769,
+	    "Python": 7769
+	  },
+	  branches: [{
+	    "name": "master",
+	    "commit": {
+	      "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+	    }
+	  }],
+	  openIssues: [],
+	  badges: ['one-of-em']
+	}, {
+	  name: 'glo2003/glo',
+	  lastCommit: '',
+	  ciStatus: '',
+	  contributors: [{
+	    "login": "octocat",
+	    "id": 1,
+	    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+	    "url": "https://api.github.com/users/octocat",
+	    "html_url": "https://github.com/octocat",
+	    "type": "User",
+	    "contributions": 32
+	  }],
+	  languages: {
+	    "C": 78769,
+	    "Python": 7769
+	  },
+	  branches: [{
+	    "name": "master",
+	    "commit": {
+	      "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+	    }
+	  }],
+	  openIssues: [],
+	  badges: ['one-of-em']
+	}, {
+	  name: 'glo2003/glo',
+	  lastCommit: '',
+	  ciStatus: '',
+	  contributors: [{
+	    "login": "octocat",
+	    "id": 1,
+	    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+	    "url": "https://api.github.com/users/octocat",
+	    "html_url": "https://github.com/octocat",
+	    "type": "User",
+	    "contributions": 32
+	  }],
+	  languages: {
+	    "C": 78769,
+	    "Python": 7769
+	  },
+	  branches: [{
+	    "name": "master",
+	    "commit": {
+	      "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+	      "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+	    }
+	  }],
+	  openIssues: [],
 	  badges: ['one-of-em']
 	}];
 
