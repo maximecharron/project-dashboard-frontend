@@ -10,8 +10,7 @@ export default class ProjectList extends React.Component{
     return (
     <div className="sm-flex flex-wrap mxn2">
       { projects.map( (project,i) => {
-        return <div key={i} className="sm-col-6 lg-col-4 border-box p2 flex flex-stretch">
-          <Project project={project} /></div>
+        return <Project key={i} project={project} />
       })}
     </div>)
   }
