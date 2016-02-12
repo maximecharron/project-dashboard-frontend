@@ -8,7 +8,6 @@ export default class Project extends React.Component{
 
     let open_issues_count = project.openIssues ? project.openIssues.length : project["open_issues_count"];
 
-
     const openIssuesCountSection = (props => {
       let obj={cn:"white bg-red",txt:"Could not retrieve issues"};
 
