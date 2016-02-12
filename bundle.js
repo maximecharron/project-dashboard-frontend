@@ -11225,7 +11225,7 @@
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
 	
-	      var open_issues_count = project.openIssues.length || project["open_issues_count"];
+	      var open_issues_count = project.openIssues ? project.openIssues.length : project["open_issues_count"];
 	
 	      var openIssuesCountSection = function (props) {
 	        var obj = { cn: "white bg-red", txt: "Could not retrieve issues" };
