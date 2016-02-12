@@ -3,13 +3,9 @@
 ## Building
 
 ```sh
-npm install # <- also run this one to update dependencies
+npm install -g webpack
+npm install
 npm run build
-```
-## Run locally
-
-```sh
-npm run serve
 ```
 
 ## Deploying
