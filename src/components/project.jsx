@@ -28,7 +28,7 @@ export default class Project extends React.Component{
       return <a href={project.html_url + "/issues"} className={obj.cn + " p2 rounded col-5"}>{obj.txt}</a>;
     })();
 
-    return (<div className="sm-col-6 lg-col-4 border-box flex flex-stretch flex-wrap bg-dgray radius m2">
+    return (<div className="sm-col-6 lg-col-4 border-box flex flex-stretch flex-wrap bg-dgray radius m2 ac-flex-start">
               <div className="col-12 border-bottom py1 px2">
                 <a className="white" href={project.html_url}>{project.name}</a>
               </div>
