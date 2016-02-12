@@ -11224,6 +11224,7 @@
 	      var project = this.props.project;
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
+	      var openIssues = project.openIssues || project.open_issues || [];
 	
 	      var open_issues_count = project.openIssues ? project.openIssues.length : project["open_issues_count"];
 	
@@ -11247,9 +11248,31 @@
 	        );
 	      }();
 	
+	      var openIssueSection = function (props) {
+	        if (open_issues_count === 0) {
+	          return "No open issue.";
+	        }
+	        return openIssues.map(function (issue) {
+	          return _react2.default.createElement(
+	            "div",
+	            null,
+	            " ",
+	            _react2.default.createElement(
+	              "a",
+	              { href: issue.html_url },
+	              " # ",
+	              issue.id || '',
+	              ": ",
+	              issue.title,
+	              " "
+	            )
+	          );
+	        });
+	      }();
+	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "sm-col-6 lg-col-4 border-box flex flex-stretch flex-wrap bg-dgray radius m2" },
+	        { className: "sm-col-6 lg-col-4 border-box flex flex-stretch flex-wrap bg-dgray radius m2 ac-flex-start" },
 	        _react2.default.createElement(
 	          "div",
 	          { className: "col-12 border-bottom py1 px2" },
@@ -11296,7 +11319,8 @@
 	              )
 	            );
 	          })
-	        )
+	        ),
+	        openIssueSection
 	      );
 	    }
 	  }]);
