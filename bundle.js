@@ -11225,70 +11225,47 @@
 	      var contributors = project.contributors || [];
 	      var languages = project.languages || {};
 	
-	      var open_issues_count = project["open_issues_count"];
-	      console.log(project["open_issues_count"]);
-	      var openIssues = function (props) {
-	        if (!project.open_issues_count) {
-	          return _react2.default.createElement(
-	            "div",
-	            { className: "p2 rounded white bg-red" },
-	            "Could not retrieve issues"
-	          );
+	      var open_issues_count = project.openIssues.length || project["open_issues_count"];
+	
+	      var openIssuesCountSection = function (props) {
+	        var obj = { cn: "white bg-red", txt: "Could not retrieve issues" };
+	
+	        if (open_issues_count === 0) {
+	          obj = { cn: "white bg-green", txt: "0 issues" };
+	        } else if (open_issues_count === 1) {
+	          obj = { cn: "white bg-yellow", txt: "1 issue" };
+	        } else if (open_issues_count <= 3) {
+	          obj = { cn: "white bg-yellow", txt: open_issues_count + " issues" };
+	        } else if (open_issues_count > 3) {
+	          obj = { cn: "white bg-red", txt: open_issues_count + " issues" };
 	        }
-	        if (project.open_issues_count === 0) {
-	          return _react2.default.createElement(
-	            "div",
-	            { className: "p2 rounded white bg-green" },
-	            "0 issues"
-	          );
-	        }
-	        if (project.open_issues_count === 1) {
-	          return _react2.default.createElement(
-	            "div",
-	            { className: "p2 rounded white bg-yellow" },
-	            "1 issue"
-	          );
-	        }
-	        if (project.open_issues_count < 3) {
-	          return _react2.default.createElement(
-	            "div",
-	            { className: "p2 rounded white bg-yellow" },
-	            project.open_issues_count,
-	            " issues"
-	          );
-	        }
+	
 	        return _react2.default.createElement(
-	          "div",
-	          { className: "p2 rounded white bg-red" },
-	          project.open_issues_count,
-	          " issues"
+	          "a",
+	          { href: project.html_url + "/issues", className: obj.cn + " p2 rounded col-5" },
+	          obj.txt
 	        );
 	      }();
 	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "border shadow col-12" },
+	        { className: "sm-col-6 lg-col-4 border-box flex flex-stretch flex-wrap bg-dgray radius m2" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "white bg-black p2 " },
-	          project.name
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "flex p2 flex-jc-space-around" },
+	          { className: "col-12 border-bottom py1 px2" },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "col-4" },
-	            openIssues
+	            "a",
+	            { className: "white", href: project.html_url },
+	            project.name
 	          )
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          null,
-	          "Languages",
+	          { className: "col-12 flex p2 flex-jc-space-around" },
+	          openIssuesCountSection,
 	          _react2.default.createElement(
 	            "ul",
-	            null,
+	            { className: "col-5" },
 	            Object.keys(languages).map(function (k) {
 	              return _react2.default.createElement(
 	                "li",
@@ -11302,24 +11279,23 @@
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          null,
-	          "Contributors",
-	          _react2.default.createElement(
-	            "ul",
-	            null,
-	            contributors.map(function (contributor) {
-	              return _react2.default.createElement(
-	                "li",
-	                { key: contributor.login },
-	                _react2.default.createElement(
-	                  "a",
-	                  { href: contributor.html_url },
-	                  _react2.default.createElement("img", { height: "64px", width: "64px", src: contributor.avatar_url }),
-	                  contributor.login
-	                )
-	              );
-	            })
-	          )
+	          { className: "border-bottom" },
+	          "Contributors"
+	        ),
+	        _react2.default.createElement(
+	          "ul",
+	          { className: "col-12 list-style-none flex flex-wrap jc-space-between p0 m0" },
+	          contributors.map(function (contributor) {
+	            return _react2.default.createElement(
+	              "li",
+	              { className: "p2", key: contributor.login },
+	              _react2.default.createElement(
+	                "a",
+	                { href: contributor.html_url },
+	                _react2.default.createElement("img", { height: "48px", width: "48px", src: contributor.avatar_url, alt: contributor.login })
+	              )
+	            );
+	          })
 	        )
 	      );
 	    }
@@ -11381,11 +11357,7 @@
 	        'div',
 	        { className: 'sm-flex flex-wrap mxn2' },
 	        projects.map(function (project, i) {
-	          return _react2.default.createElement(
-	            'div',
-	            { key: i, className: 'sm-col-6 lg-col-4 border-box p2 flex flex-stretch' },
-	            _react2.default.createElement(_project2.default, { project: project })
-	          );
+	          return _react2.default.createElement(_project2.default, { key: i, project: project });
 	        })
 	      );
 	    }
