@@ -34,7 +34,7 @@ export default class Project extends React.Component{
         if(open_issues_count === 0){
             return "No open issue.";
         }
-        return openIssues.map((issue) => (<div> <a href={issue.html_url}> # {issue.id || ''}: {issue.title} </a></div>))
+        return openIssues.map((issue) => (<div> <a href={issue.html_url}> # {issue.id || issue.number || ''}: {issue.title} </a></div>))
 
     })();
 
